@@ -5,10 +5,6 @@ import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Oval } from "react-loader-spinner";
-
-
-=======
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faBuilding,
@@ -95,9 +91,6 @@ export default function HeroSection() {
       text: "If you’ve got a property or asset to move, this is where you start",
     },
   ];
-
-=======
-
   return (
     <section className="hero-section">
       <div className="container-fluid">
@@ -125,7 +118,6 @@ export default function HeroSection() {
                       <Link href={"/sell"} className="sellnow">
                         Sell Now
                       </Link>
-=======
                       <Link className="explore-more" href="/marketplace">Explore More</Link>
                       <Link className="sellnow" href="/sell">Sell Now</Link>
 
@@ -160,7 +152,6 @@ export default function HeroSection() {
 
           <div className="loader-container">
             <Oval height={80} width={80} color="#3498db" secondaryColor="#f3f3f3" ariaLabel="loading-indicator" />
-=======
           <div className="loader-container text-center py-5">
             <Oval
               height={80}
@@ -320,9 +311,6 @@ backgroundImage:
 
 
     </section>
-
-    
-=======
       <div className="welcome-section text-center py-5 px-3" style={{ background: "#f5f5f5" }}>
         <h2 className="mb-3" style={{ fontSize: "2.5rem", fontWeight: "bold" }}>
           Welcome to <span style={{ color: "#43ACE9" }}>Xpert</span><span style={{ color: "#333333" }}>Bid</span>
