@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -605,7 +604,6 @@ const AboutUs = () => {
             <Footer />
         </>
     );
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
 };
 
 export default AboutUs;
