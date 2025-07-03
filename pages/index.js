@@ -75,7 +75,6 @@ export default function Home() {
           <TopBid />
           <MarketplaceSection products={products} />
           <SellerTestimonials/>
-=======
           <FeaturedProducts />
           <SliderBrowseCategories />
           <TopBid />
