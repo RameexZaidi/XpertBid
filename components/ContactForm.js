@@ -292,8 +292,7 @@ const ContactForm = () => {
                 placeholder="Type your message here..."
                 className={`form-control form-control-lg rounded-3 ${errors.message ? "is-invalid" : ""}`}
                 value={formData.message}
-                onChange={handleChange}
-              ></textarea>
+                onChange={handleChange}></textarea>
               {errors.message && <div className="invalid-feedback">{errors.message}</div>}
             </div>
 
