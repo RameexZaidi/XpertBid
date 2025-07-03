@@ -1,4 +1,4 @@
-// components/HeroSection.js
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
@@ -6,9 +6,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Oval } from "react-loader-spinner";
 
-<<<<<<< HEAD
+
 =======
-// Font Awesome
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faBuilding,
@@ -40,7 +40,7 @@ library.add(
   faTruck
 );
 
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
+
 export default function HeroSection() {
   const [sliderData, setSliderData] = useState([]);
   const [stats, setStats] = useState({
@@ -68,7 +68,7 @@ export default function HeroSection() {
       .catch((err) => console.error(err));
   }, []);
 
-<<<<<<< HEAD
+
   const whoUses = [
     {
       icon: "fa-building",
@@ -97,7 +97,7 @@ export default function HeroSection() {
   ];
 
 =======
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
+
   return (
     <section className="hero-section">
       <div className="container-fluid">
@@ -118,7 +118,7 @@ export default function HeroSection() {
                     <h1 className="hero-sec">{slide.subtitle}</h1>
                     <p>{slide.description}</p>
                     <div className="hero-sec-btn">
-<<<<<<< HEAD
+
                       <Link className="explore-more" href={"/marketplace"}>
                         Explore More
                       </Link>
@@ -128,7 +128,7 @@ export default function HeroSection() {
 =======
                       <Link className="explore-more" href="/marketplace">Explore More</Link>
                       <Link className="sellnow" href="/sell">Sell Now</Link>
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
+
                     </div>
                     <div className="happy-clients">
                       <div className="client-ratings">
@@ -157,7 +157,7 @@ export default function HeroSection() {
             ))}
           </Swiper>
         ) : (
-<<<<<<< HEAD
+
           <div className="loader-container">
             <Oval height={80} width={80} color="#3498db" secondaryColor="#f3f3f3" ariaLabel="loading-indicator" />
 =======
@@ -169,13 +169,13 @@ export default function HeroSection() {
               secondaryColor="#f3f3f3"
               ariaLabel="loading-indicator"
             />
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
+
           </div>
         )}
       </div>
 
       {/* Welcome Section */}
-<<<<<<< HEAD
+
       <div
   className="xpertbid-welcome-section position-relative text-dark d-flex align-items-center"
   style={{
@@ -500,6 +500,5 @@ backgroundImage:
         </div>
       </div>
     </section>
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
   );
 }
