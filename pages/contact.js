@@ -6,6 +6,28 @@ const Contact = () => {
   return (
     <>
       <Header />
+<<<<<<< HEAD
+      <section className="color py-5">
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2 className="fw-bold mb-3">Contact Us</h2>
+            <h4 className="text-secondary">
+              Questions? We&apos;re Here to Help.
+            </h4>
+            <p className="text-muted mt-2">
+              Whether you&apos;re looking to list your first property, need support with bidding, 
+              or simply want to know more about how{" "}
+              <strong>
+                <span style={{ color: "#43ACE9" }}>Xpert</span>
+                <span style={{ color: "#333" }}>Bid</span>
+              </strong>{" "}
+              works — our team is ready to assist.
+            </p>
+          </div>
+          <ContactForm />
+        </div>
+      </section>
+=======
 
       {/* Hero Section */}
       <section className="py-5 bg-light">
@@ -115,6 +137,7 @@ const Contact = () => {
         </div>
       </section>
 
+>>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
       <Footer />
     </>
   );
