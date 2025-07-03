@@ -169,7 +169,7 @@ export default function MarketplaceSection({ products }) {
                       <div className="mkt-crt-bid">
                         <span className="text-muted small">Current Bid</span>
                         <div className="mkt-bid-price text-dark fw-bold">
-=======
+
 // components/MarketplaceSection.js
 import Link from "next/link";
 import CountdownTimer from "./countdown";
@@ -214,7 +214,7 @@ export default function MarketplaceSection({ products }) {
                       </Link>
                     </div>
                   </div>
-=======
+
                       <div className="mkt-bid-btn">
                         <Link href={`/product/${product.slug}`}>Place Bid</Link>
                       </div>
@@ -349,7 +349,7 @@ export default function MarketplaceSection({ products }) {
     </>
   );
 }
-=======
+
             <p>No products found.</p>
           )}
           </div>
