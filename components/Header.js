@@ -15,13 +15,6 @@ import CategoriesDropdown from './CategoriesDropdown';
 import NotificationDropdown from "./NotificationDropdown"; //  Import Dynamic Notifications
 
 export default function Header() {
-
-
-
-
-
-
-  
   // If any JS is needed (like openMobileMenu, closeMobileMenu),
   // ensure that is handled either here or via refs.
   // For now, we assume the JS from script.js handles it.
@@ -88,11 +81,6 @@ useEffect(() => {
     document.removeEventListener("mousedown", handleClickOutside);
   };
 }, []);
-
-
-
-
-
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("login") === "true") {
@@ -393,8 +381,6 @@ useEffect(() => {
 
       <li className="nav-item">
         <Link
-=======
-
       <li className="nav-item">
         <Link
           href="Real_Estate"
@@ -431,7 +417,6 @@ useEffect(() => {
 
 
 
-=======
 
                                <li className="nav-item">
         <Link
