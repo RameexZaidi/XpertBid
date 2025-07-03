@@ -361,9 +361,25 @@ useEffect(() => {
 
      <CategoriesDropdown />
      </div>
+<<<<<<< HEAD
+
+     <li className="nav-item">
+        <Link
+          href="/RealEstate"
+          className={`nav-link  ${
+            router.pathname === '/RealEstate' ? 'active' : ''
+          }`}
+        >
+          Realestate
+        </Link>
+      </li>  
+   
+      <li className="nav-item">
+=======
        
    
                         <li className="nav-item">
+>>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
         <Link
           href="about_us"
           className={`nav-link  ${
@@ -374,6 +390,10 @@ useEffect(() => {
         </Link>
       </li>
 
+<<<<<<< HEAD
+      <li className="nav-item">
+        <Link
+=======
 
       <li className="nav-item">
         <Link
@@ -388,6 +408,7 @@ useEffect(() => {
 
                          <li className="nav-item">
         <Link
+>>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
           href="/about-our-partner"
           className={`nav-link  ${
             router.pathname === '/about-our-partner' ? 'active' : ''
@@ -397,6 +418,21 @@ useEffect(() => {
         </Link>
       </li>
 
+        <li className="nav-item">
+        <Link
+          href="/Faqs"
+          className={`nav-link  ${
+            router.pathname === '/Faqs' ? 'active' : ''
+          }`}
+        >
+          Faqs
+        </Link>
+      </li>      
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
                                <li className="nav-item">
         <Link
           href="/contact"
