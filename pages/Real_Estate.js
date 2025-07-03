@@ -300,4 +300,4 @@ const Real_Estate = () => {
     );
 };
 
-export default Real_Estate;
+
