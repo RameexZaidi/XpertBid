@@ -336,7 +336,6 @@ useEffect(() => {
                     <Link className={`nav-link ${router.pathname  === '/categories' ? 'active' : ''}`} href="/categories" role="button" >
                       Categories
                     </Link>
-
                   </li> */}
                    {/* <li className="nav-item"> <Link className="nav-link" href="/vehicle"> Vehicle </Link> </li>
                    <li className="nav-item"> <Link className="nav-link" href="/service"> Services </Link> </li>
