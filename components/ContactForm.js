@@ -3,7 +3,6 @@ import axios from "axios";
 
 import SuccessPopup from "@/components/SuccessPopup"; // adjust the path as needed
 import ErrorPopup from "@/components/ErrorPopup"; // adjust the path as needed
-=======
 import SuccessPopup from "@/components/SuccessPopup";
 import ErrorPopup from "@/components/ErrorPopup";
 const ContactForm = () => {
@@ -19,12 +18,9 @@ const ContactForm = () => {
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [successPopupMessage, setSuccessPopupMessage] = useState("");
   const [successPopupSubMessage, setSuccessPopupSubMessage] = useState("");
-  
-=======
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [successPopupMessage, setSuccessPopupMessage] = useState("");
   const [successPopupSubMessage, setSuccessPopupSubMessage] = useState("");
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [errorPopupMessage, setErrorPopupMessage] = useState("");
   const [errorPopupSubMessage, setErrorPopupSubMessage] = useState("");
@@ -32,7 +28,6 @@ const ContactForm = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" }); // Clear previous error for that field
-=======
   const validate = () => {
     let formErrors = {};
     if (!formData.name.trim()) formErrors.name = "Name is required.";
@@ -59,7 +54,6 @@ const ContactForm = () => {
 
     setErrors({});
     // Clear previous popups
-=======
     if (!validate()) return;
 
 >>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
@@ -89,7 +83,6 @@ const ContactForm = () => {
       } else {
         setErrorPopupMessage("Something went wrong. Please try again.");
         setErrorPopupSubMessage("");
-=======
       const response = await axios.post("https://admin.xpertbid.com/api/contact", formData);
       setSuccessPopupMessage(response.data.message || "Message sent successfully!");
       setSuccessPopupSubMessage("We'll get back to you soon.");
@@ -230,7 +223,6 @@ const ContactForm = () => {
 
 
 </div></div>
-=======
     <div className="container py-5">
       <div className="col-lg-10 mx-auto p-5 rounded shadow bg-light border border-2 border-dark-subtle">
         <h2 className="text-center mb-4 text-dark fw-bold">💬 Get in Touch</h2>
