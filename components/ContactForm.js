@@ -56,7 +56,6 @@ const ContactForm = () => {
     // Clear previous popups
     if (!validate()) return;
 
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
     setShowSuccessPopup(false);
     setShowErrorPopup(false);
 
