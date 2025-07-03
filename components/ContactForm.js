@@ -10,13 +10,21 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
+
   const [errors, setErrors] = useState({});
+
+  // Popup state
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [successPopupMessage, setSuccessPopupMessage] = useState("");
   const [successPopupSubMessage, setSuccessPopupSubMessage] = useState("");
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [errorPopupMessage, setErrorPopupMessage] = useState("");
   const [errorPopupSubMessage, setErrorPopupSubMessage] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
 
   const validate = () => {
     let formErrors = {};
@@ -33,15 +41,9 @@ const ContactForm = () => {
     return Object.keys(formErrors).length === 0;
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" });
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
-
     if (!validate()) return;
 
     setShowSuccessPopup(false);
@@ -52,27 +54,21 @@ const ContactForm = () => {
         "https://admin.xpertbid.com/api/contact",
         formData
       );
-
       setSuccessPopupMessage(response.data.message || "Message sent successfully!");
       setSuccessPopupSubMessage("We'll get back to you soon.");
       setShowSuccessPopup(true);
-
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       if (error.response && error.response.status === 422) {
         const combinedErrors = Object.values(error.response.data.errors)
           .flat()
           .join(" ");
         setErrorPopupMessage(combinedErrors);
+        setErrorPopupSubMessage("");
       } else {
         setErrorPopupMessage("Something went wrong. Please try again.");
+        setErrorPopupSubMessage("");
       }
-      setErrorPopupSubMessage("");
       setShowErrorPopup(true);
     }
   };
@@ -85,7 +81,8 @@ const ContactForm = () => {
             className="py-5"
             style={{
               backgroundColor: "#C3E1F3",
-              backgroundImage: "url('https://www.transparenttextures.com/patterns/concrete-wall.png')",
+              backgroundImage:
+                "url('https://www.transparenttextures.com/patterns/concrete-wall.png')",
               backgroundRepeat: "repeat",
               backgroundSize: "auto",
             }}
@@ -108,10 +105,10 @@ const ContactForm = () => {
                     </p>
                   </div>
                 </div>
-
                 <div className="col-md-6">
                   <div className="ms-md-auto contact-form shadow-lg">
                     <h2 className="fw-bolder my-4">Fill up form</h2>
+                    {/* Popups */}
                     {showSuccessPopup && (
                       <SuccessPopup
                         isOpen={showSuccessPopup}
@@ -176,7 +173,7 @@ const ContactForm = () => {
                         />
                         {errors.message && <p className="error">{errors.message}</p>}
                       </div>
-                      <div className="text-center">
+                      <div className="text-center mt-3">
                         <button type="submit" className="py-4">
                           Send
                         </button>
@@ -189,6 +186,8 @@ const ContactForm = () => {
           </section>
         </div>
       </div>
+
+      {/* Second duplicate form removed, if you want a second form, you can copy safely */}
     </>
   );
 };
