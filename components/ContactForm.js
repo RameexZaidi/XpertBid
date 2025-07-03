@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-<<<<<<< HEAD
+
 import SuccessPopup from "@/components/SuccessPopup"; // adjust the path as needed
 import ErrorPopup from "@/components/ErrorPopup"; // adjust the path as needed
 =======
 import SuccessPopup from "@/components/SuccessPopup";
 import ErrorPopup from "@/components/ErrorPopup";
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
-
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -15,9 +13,8 @@ const ContactForm = () => {
     subject: "",
     message: "",
   });
-
   const [errors, setErrors] = useState({});
-<<<<<<< HEAD
+
     // We'll remove inline successMessage and instead use popups:
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [successPopupMessage, setSuccessPopupMessage] = useState("");
@@ -32,7 +29,6 @@ const ContactForm = () => {
   const [errorPopupMessage, setErrorPopupMessage] = useState("");
   const [errorPopupSubMessage, setErrorPopupSubMessage] = useState("");
 
-<<<<<<< HEAD
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" }); // Clear previous error for that field
@@ -55,12 +51,12 @@ const ContactForm = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
+
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
+
     setErrors({});
     // Clear previous popups
 =======
@@ -71,7 +67,7 @@ const ContactForm = () => {
     setShowErrorPopup(false);
 
     try {
-<<<<<<< HEAD
+
       const response = await axios.post(
         "https://admin.xpertbid.com/api/contact",
         formData
@@ -105,14 +101,13 @@ const ContactForm = () => {
         setErrorPopupMessage(combinedErrors);
       } else {
         setErrorPopupMessage("Something went wrong. Please try again.");
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
       }
       setShowErrorPopup(true);
     }
   };
 
   return (
-<<<<<<< HEAD
+
 <div className="container py-4">
 <div className="row">
 
@@ -323,7 +318,6 @@ const ContactForm = () => {
         </form>
       </div>
     </div>
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
   );
 };
 
