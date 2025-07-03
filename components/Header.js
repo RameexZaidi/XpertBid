@@ -125,39 +125,6 @@ useEffect(() => {
     }
   };
 
-  // const handleSearchChange = (e) => {
-  //   const query = e.target.value;
-  //   setSearchQuery(query);
-
-  //   if (query.length > 2) {
-  //     debounceSearch(query);
-  //   } else {
-  //     setSearchResults([]);
-  //   }
-  // };
-
-  // const debounceSearch = (() => {
-  //   let timer;
-  //   return (query) => {
-  //     if (timer) clearTimeout(timer);
-  //     timer = setTimeout(() => {
-  //       fetchSearchResults(query);
-  //     }, 300);
-  //   };
-  // })();
-
-  // const fetchSearchResults = async (query) => {
-  //   setIsSearching(true);
-  //   try {
-  //     const response = await axios.get(`https://admin.xpertbid.com/api/search-auctions`, {
-  //       params: { query },
-  //     });
-  //     setSearchResults(response.data.auctions);
-  //   } catch (error) {
-  //     console.error("Search error:", error);
-  //   }
-  //   setIsSearching(false);
-  // };
   return (
     <>
     <SeoHeader />
@@ -283,30 +250,6 @@ useEffect(() => {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse menuBar" id="navbarSupportedContent">
-              {/* replace existing inline search form with icon */}
-            {/* <button
-          type="button"
-          className="search-icon-btn"
-          onClick={() => setSearchOpen(true)}
-        >
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button> */}
-
-              {/* <form className="d-flex search-forms" role="search">
-               
-                {isSearching && <p className="searching-message">Searching...</p>}
-                {searchResults.length > 0 && (
-                  <ul className="search-result">
-                    {searchResults.map((auction) => (
-                      <li key={auction.id}>
-                        <Link href={`/product/${auction.id}`}>{auction.title}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </form> */}
-
-
               {!session ? (
                 <>
                     <ul className="navbar-nav"> <div
@@ -326,21 +269,7 @@ useEffect(() => {
       placeholder="Search auctions"
     />
   </div>
-                    {/* <li className="nav-item">
-                      <Link className="nav-link" href={"/categories"}>
-                        Categories
-                      </Link>
-
-                    </li> */}
-             {/* <li className="nav-item ">
-                    <Link className={`nav-link ${router.pathname  === '/categories' ? 'active' : ''}`} href="/categories" role="button" >
-                      Categories
-                    </Link>
-                  </li> */}
-                   {/* <li className="nav-item"> <Link className="nav-link" href="/vehicle"> Vehicle </Link> </li>
-                   <li className="nav-item"> <Link className="nav-link" href="/service"> Services </Link> </li>
-                   <li className="nav-item"> <Link className="nav-link" href="/realestate"> Realestate </Link> </li> */}
-             {/* Header Dropdown - Single Column */}
+                   
 <div className="d-none d-xl-block">
      <DesktopCategoriesDropdown />
      </div>
@@ -426,36 +355,6 @@ useEffect(() => {
           Contact Us
         </Link>
       </li>
-         
-
-         
-                    {/* <li className="nav-item dropdown  d-none d-xl-block">
-                    <Link className="nav-link" href={"/about_us"} id="aboutUsDropdown">
-                      About
-                    </Link>
-                    <ul className="dropdown-menu" aria-labelledby="aboutUsDropdown">
-                      <li>
-                        <Link className="dropdown-item" href={"/about-our-partner"}>
-                          Directory
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                    <li className="nav-item dropdown d-block d-xl-none">
-                    <Link className="nav-link" href={"/about_us"} id="aboutUsDropdown">
-                      About
-                    </Link>
-                    </li>
-
-                      <li className="nav-item dropdown d-block d-xl-none">
-                        <Link className="nav-link" href={"/about-our-partner"}>
-                          Directory
-                        </Link>
-                      </li> */}
-
-
-
-
                   </ul>
 
                   <div className="nav-item registration-btns d-none d-xl-flex"> 
@@ -466,10 +365,7 @@ useEffect(() => {
                 </>
 
               ) : (
-                // Show username and logout button if the user is logged in
           <>
-                  {/* Notifications */}
-
                   <ul className="navbar-nav dashboard-nav"
                     id="navbarDesktop">
                     <li className="nav-item">
@@ -521,55 +417,6 @@ useEffect(() => {
                           </Link>
 
                           </li>
-
-                    {/* <li className="nav-item">
-                      <Link className="nav-link" href={"/categories"}>
-                        Categories
-                      </Link>
-                      </li>
-
-                           <li className="nav-item">
-                            <Link className="nav-link" href="/vehicle">
-                            Vehicle
-                             </Link>
-                             </li>
-
-                             <li className="nav-item">
-                              <Link className="nav-link" href="/service">
-                              Services
-                               </Link>
-                               </li>
-                               <li className="nav-item">
-                           <Link className="nav-link" href="/realestate">
-                           Realestate
-                         </Link>
-                     </li>
-
-                    <li className="nav-item dropdown  d-none d-xl-block">
-                    <Link className="nav-link" href={"/about_us"} id="aboutUsDropdown">
-                      About
-                    </Link>
-                    <ul className="dropdown-menu" aria-labelledby="aboutUsDropdown">
-                      <li>
-                        <Link className="dropdown-item" href={"/about-our-partner"}>
-                          Directory
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                    <li className="nav-item dropdown d-block d-xl-none">
-                    <Link className="nav-link" href={"/about_us"} id="aboutUsDropdown">
-                      About
-                    </Link>
-                    </li>
-
-                      <li className="nav-item dropdown d-block d-xl-none">
-                        <Link className="nav-link" href={"/about-our-partner"}>
-                          Directory
-                        </Link>
-                      </li>
- */}
-
                   </ul>
                   <div className="registration-btns-dashboard ms-auto dashboard-menu">
                     {/* User Balance */}
@@ -625,12 +472,6 @@ useEffect(() => {
                                   <img src="/assets/images/wallet.svg" alt="Wallet" /> My Wallet
                                 </Link>
                               </li>
-                              {/*<li>
-                                   <Link href={"/transportation"}>
-                                    <img src="/assets/images/order-box.svg" alt="Order Transportation" />{" "}
-                                    Order Transportation
-                                  </Link>
-                                  </li>*/}
                               <li>
                                 <Link href={"/favourites"}>
                                   <img src="/assets/images/setting-heart.svg" alt="Favorites" /> My
@@ -682,10 +523,7 @@ useEffect(() => {
 <Link href="/sell" className="d-none d-xl-block sellnow nav-sellnow">
                             Sell Now
                           </Link>
-                  {/* Sell Now Button */}
-
-                  {/* <p>Welcome, {session.user.name}!</p>
-                    <button onClick={() => handleLogout()}>Logout</button>*/}
+                 
                 </>
               )
               }
