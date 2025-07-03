@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import Link from "next/link";
 import CountdownTimer from "./countdown";
@@ -204,12 +203,12 @@ export default function MarketplaceSection({ products }) {
                       <div className="mkt-crt-bid">
                         <span className="crnt-bid">Current Bid</span>
                         <div className="mkt-bid-price">
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
+
                           <i className="fa-solid fa-dollar-sign"></i>
                           <span className="price">{product.bids_max_bid_amount}</span> USD
                         </div>
                       </div>
-<<<<<<< HEAD
+
                       <Link href={`/product/${product.slug}`} className="btn placebid-btn btn-sm">
                         Place Bid
                       </Link>
@@ -222,12 +221,12 @@ export default function MarketplaceSection({ products }) {
                     </div>
                   </div>
                 
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
+
                 </div>
               </div>
             ))
           ) : (
-<<<<<<< HEAD
+
             <p className="text-dark">No products found.</p>
           )}
         </div>
@@ -358,4 +357,4 @@ export default function MarketplaceSection({ products }) {
       </section>
     );
   }
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
+
