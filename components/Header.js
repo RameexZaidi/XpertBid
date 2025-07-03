@@ -15,35 +15,21 @@ import CategoriesDropdown from './CategoriesDropdown';
 import NotificationDropdown from "./NotificationDropdown"; //  Import Dynamic Notifications
 
 export default function Header() {
-  // If any JS is needed (like openMobileMenu, closeMobileMenu),
-  // ensure that is handled either here or via refs.
-  // For now, we assume the JS from script.js handles it.
+
   const [activeModal, setActiveModal] = useState(null);
   const { data: session } = useSession();
   //const userProfileRef = useRef(null);
   const userProfileRefDesktop = useRef(null);
 const userProfileRefMobile = useRef(null);
-  // ← add this:
-  // const [expandedCat, setExpandedCat] = useState(null);
-  // const toggleExpand = (id) => {
-  //   setExpandedCat(prev => (prev === id ? null : id));
-  // };
-  //const [isNotificationOpen, setNotificationOpen] = useState(false);
-  // const [isNotificationOpen, setNotificationOpen] = useState(false);
+
 
 const [isUserSettingsOpenDesktop, setUserSettingsOpenDesktop] = useState(false);
 const [isUserSettingsOpenMobile, setUserSettingsOpenMobile] = useState(false);
-  // const [isUserSettingsOpen, setUserSettingsOpen] = useState(false);//
-  // const [cats, setCats] = useState([])
+
 
   const [isSearchOpen, setSearchOpen] = useState(false);
   const router = useRouter()
-  // Handlers for toggling menus
-  //const toggleNotificationPopup = () => setNotificationOpen(!isNotificationOpen);
-  // const toggleNotificationPopup = () => setNotificationOpen(!isNotificationOpen);
-  // const toggleUserSettingPopup = () => setUserSettingsOpen(!isUserSettingsOpen);s
-  //const openMobileMenu = () => setMobileMenuOpen(true);
-  //const closeMobileMenu = () => setMobileMenuOpen(false);
+
 const toggleUserSettingPopupDesktop = () => {
   setUserSettingsOpenDesktop(prev => !prev);
 };
@@ -56,7 +42,6 @@ const toggleUserSettingPopupMobile = () => {
   };
 useEffect(() => {
   const handleClickOutside = (event) => {
-    // Desktop Dropdown
     if (
       userProfileRefDesktop.current &&
       !userProfileRefDesktop.current.contains(event.target) &&
@@ -256,7 +241,7 @@ useEffect(() => {
     className="search-trigger"
     onClick={() => setSearchOpen(true)}
     onFocus={() => setSearchOpen(true)}
-    tabIndex={0}                  /* taake focus mil sake */
+    tabIndex={0}                
   >
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
     <path d="M9.58317 17.4998C13.9554 17.4998 17.4998 13.9554 17.4998 9.58317C17.4998 5.21092 13.9554 1.6665 9.58317 1.6665C5.21092 1.6665 1.6665 5.21092 1.6665 9.58317C1.6665 13.9554 5.21092 17.4998 9.58317 17.4998Z" stroke="#606060" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
