@@ -51,11 +51,9 @@ export default function Home() {
         <>
           <Header />
           <HeroSection />
-          // <HowItWorks />
           <SliderBrowseCategories />
           <TopBid />
           <MarketplaceSection products={products} />
-          // <SellerTestimonials />
           <FeaturedProducts />
           <Testimonials />
           <GetStartedXpertBid />
