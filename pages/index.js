@@ -1,22 +1,34 @@
+// pages/index.js
 import { useState, useEffect } from "react";
-import { Oval } from "react-loader-spinner";
+import { Oval } from "react-loader-spinner"; // Import the loader
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
-//import HowItWorks from "../components/HowItWorks";
+//import FeaturedProducts from "../components/FeaturedProducts";
+import HowItWorks from "../components/HowItWorks";
+
 import SliderBrowseCategories from "../components/SliderBrowseCategories";
 import TopBid from "../components/TopBid";
 import MarketplaceSection from "../components/MarketplaceSection";
-//import SellerTestimonials from "../components/SellerTestimonials";
-import FeaturedProducts from "../components/FeaturedProducts";
-import Testimonials from "../components/Testimonials";
-import GetStartedXpertBid from "../components/GetStartedXpertBid";
 import StartSelling from "../components/StartSelling";
+import SellerTestimonials from "../components/SellerTestimonials";
+
+import FeaturedProducts from "../components/FeaturedProducts";
+import SliderBrowseCategories from "../components/SliderBrowseCategories";
+import TopBid from "../components/TopBid";
+import MarketplaceSection from "../components/MarketplaceSection";
+import Testimonials from "../components/Testimonials.js";
+import GetStartedXpertBid from "../components/GetStartedXpertBid.js";
+import StartSelling from "../components/StartSelling";
+//import { useSession } from "next-auth/react"; // Assuming you're using NextAuth.js
+// import PopupSequence from "../components/PopupSequence";
+
 
 export default function Home() {
+  //const { data: session, status } = useSession(); // Get user session
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
+  const [loading, setLoading] = useState(true); // State to handle loading
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -28,7 +40,7 @@ export default function Home() {
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
-        setLoading(false);
+        setLoading(false); // Stop loading after fetch
       }
     };
 
@@ -36,8 +48,10 @@ export default function Home() {
   }, []);
 
   return (
+    
     <>
       {loading ? (
+        // Show loader while loading
         <div className="loader-container">
           <Oval
             height={80}
@@ -50,13 +64,21 @@ export default function Home() {
       ) : (
         <>
           <Header />
+          {/* {isFirstLogin && <p className="welcome-message"> Welcome! This is your first login.</p>} */}
           <HeroSection />
+          {/* <FeaturedProducts /> */}
+          <HowItWorks />
+
           <SliderBrowseCategories />
           <TopBid />
           <MarketplaceSection products={products} />
+          <SellerTestimonials/>
           <FeaturedProducts />
-          <Testimonials />
-          <GetStartedXpertBid />
+          <SliderBrowseCategories />
+          <TopBid />
+          <MarketplaceSection products={products} />
+          <Testimonials/>
+          <GetStartedXpertBid/>
           <StartSelling />
           <Footer />
         </>
