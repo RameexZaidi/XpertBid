@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // pages/index.js
 import { useState, useEffect } from "react";
 import { Oval } from "react-loader-spinner"; // Import the loader
@@ -303,4 +302,3 @@ const Real_Estate = () => {
 };
 
 export default Real_Estate;
->>>>>>> 102243683c78317afe67a2c8fbc26b4d39bf12c5
