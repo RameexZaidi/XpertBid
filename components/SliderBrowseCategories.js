@@ -20,11 +20,12 @@ export default function BrowseCategories() {
         setLoading(false);
       }
     };
+
     fetchCategories();
   }, []);
 
   if (error) {
-    return <p className="text-danger text-center py-5">{error}</p>;
+    return <p className="text-danger">{error}</p>;
   }
 
   return (
@@ -34,151 +35,213 @@ export default function BrowseCategories() {
           <Oval
             height={80}
             width={80}
-            color="#000"
-            secondaryColor="#ccc"
+            color="#3498db"
+            secondaryColor="#f3f3f3"
             ariaLabel="loading-indicator"
           />
         </div>
       ) : (
-        <section className="browsecategories py-5">
-          <div className="container">
-
-            {/* Browse by Category Section */}
-            <div className="mb-5">
-              <div className="text-center mb-4">
-                <h2 className="fw-bold" style={{ color: "#43ACE9", fontSize: "2rem" }}>
-                  Browse by Category
-                </h2>
-                <p className="text-muted" style={{ fontSize: "1.1rem" }}>
-                  Find exactly what you’re looking for:
-                </p>
+        <section
+          className="browsecategories text-dark"
+          style={{
+            backgroundColor: "#ffffff", // plain white background
+            position: "relative",
+            zIndex: 1,
+            marginTop: "-50px",
+            paddingTop: "4rem",
+            paddingBottom: "4rem"
+          }}
+        >
+          <div className="container-fluid position-relative">
+            <div className="row cate-heading-parent d-flex justify-content-between align-items-center">
+              <div className="col-sm-12 text-center mb-4">
+                <h2 className="browse-heading">Browse Categories</h2>
               </div>
-              <div className="row g-4">
-                {[
-                  {
-                    icon: "building",
-                    title: "Property",
-                    desc: "Residential, commercial, plots, and rentals",
-                  },
-                  {
-                    icon: "car",
-                    title: "Vehicles",
-                    desc: "Cars, vans, motorcycles, and commercial vehicles",
-                  },
-                  {
-                    icon: "cogs",
-                    title: "Equipment & Machinery",
-                    desc: "Industrial tools, plant equipment, construction assets",
-                  },
-                  {
-                    icon: "boxes",
-                    title: "Stock & Inventory",
-                    desc: "Surplus goods, closeout stock, retail and wholesale lots",
-                  },
-                ].map((item, idx) => (
-                  <div className="col-md-6 col-lg-3 d-flex align-items-stretch" key={idx}>
-                    <div className="w-100 border rounded shadow-sm d-flex flex-column align-items-center text-center p-4 bg-light h-100">
-                      <i
-                        className={`fas fa-${item.icon} fa-2x mb-3`}
-                        style={{ color: "#43ACE9" }}
-                        aria-hidden="true"
-                      ></i>
-                      <h5 className="fw-bold mb-2" style={{ color: "#333" }}>
-                        {item.title}
-                      </h5>
-                      <p className="text-muted mb-0" style={{ fontSize: "0.95rem" }}>
-                        {item.desc}
-                      </p>
-                    </div>
+            </div>
+
+            {/* First 4 Categories */}
+            <div className="row cate-cards-parent mb-4">
+              {categories.slice(0, 4).map((cat, i) => (
+                <div className="col-xl-3 col-sm-6 cate-card-main px-3" key={i}>
+                  <div className="cate-card border-animate">
+                    <span className="right-border"></span>
+                    <span className="bottom-border"></span>
+                    <Link
+                      href={{ pathname: "/marketplace", query: { category: cat.slug } }}
+                      className="product-box"
+                    >
+                      <div className="row images-portion">
+                        <div className="col-12 image-1">
+                          <img
+                            src={`https://admin.xpertbid.com${
+                              cat.image?.startsWith("/") ? "" : "/"
+                            }${cat.image ?? "images/placeholder.png"}`}
+                            alt={cat.name}
+                          />
+                        </div>
+                      </div>
+                      <div className="cate-title">
+                        <h2>{cat.name}</h2>
+                      </div>
+                      <div className="cate-lisitng">
+                        <span>{cat.auctions_count} Listings</span>
+                      </div>
+                    </Link>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Button to All Categories */}
-            <div className="row align-items-center mb-4">
-              <div className="col-sm-6 text-sm-end">
-                <Link
-                  href="/categories"
-                  className="btn btn-dark shadow-sm"
-                  style={{
-                    minWidth: "200px",
-                    padding: "14px 28px",
-                    fontWeight: "600",
-                    fontSize: "1.1rem",
-                    borderRadius: "8px",
-                    boxShadow: "0 6px 12px rgba(0,0,0,0.3)",
-                    color: "#fff",
-                    display: "inline-block",
-                    textAlign: "center",
-                    transition: "background-color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#222")}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#000")}
-                >
-                  Explore Categories
-                </Link>
-              </div>
-            </div>
-
-            {/* Dynamic Categories from API */}
-            <div className="row g-4">
-              {categories.slice(0, 8).map((cat, i) => (
-                <div className="col-xl-3 col-md-4 col-sm-6" key={i}>
-                  <Link
-                    href={{
-                      pathname: "/marketplace",
-                      query: { category: cat.slug },
-                    }}
-                    className="text-decoration-none"
-                  >
-                    <div className="card h-100 d-flex flex-column shadow-sm border-0 rounded overflow-hidden category-card">
-                      <div
-                        className="card-img-top bg-light"
-                        style={{ height: "160px", overflow: "hidden" }}
-                      >
-                        <img
-                          src={`https://admin.xpertbid.com${
-                            cat.image?.startsWith("/") ? "" : "/"
-                          }${cat.image ?? "images/placeholder.png"}`}
-                          alt={cat.name}
-                          className="img-fluid w-100 h-100"
-                          style={{ objectFit: "cover" }}
-                        />
-                      </div>
-                      <div className="card-body text-center mt-auto">
-                        <h5
-                          className="card-title mb-1"
-                          style={{ color: "#333", fontWeight: 600 }}
-                        >
-                          {cat.name}
-                        </h5>
-                        <p className="card-text text-muted">{cat.auctions_count} Listings</p>
-                      </div>
-                    </div>
-                  </Link>
                 </div>
               ))}
+            </div>
+
+            {/* Next 4 Categories */}
+            <div className="row cate-cards-parent mb-4">
+              {categories.slice(4, 8).map((cat, i) => (
+                <div className="col-xl-3 col-sm-6 cate-card-main px-3" key={i}>
+                  <div className="cate-card border-animate">
+                    <span className="right-border"></span>
+                    <span className="bottom-border"></span>
+                    <Link
+                      href={{ pathname: "/marketplace", query: { category: cat.slug } }}
+                      className="product-box"
+                    >
+                      <div className="row images-portion">
+                        <div className="col-12 image-1">
+                          <img
+                            src={`https://admin.xpertbid.com${
+                              cat.image?.startsWith("/") ? "" : "/"
+                            }${cat.image ?? "images/placeholder.png"}`}
+                            alt={cat.name}
+                          />
+                        </div>
+                      </div>
+                      <div className="cate-title">
+                        <h2>{cat.name}</h2>
+                      </div>
+                      <div className="cate-lisitng">
+                        <span>{cat.auctions_count} Listings</span>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Load More Button */}
+            <div className="row justify-content-center mt-4">
+              <div className="col-auto">
+                <Link href="/categories" passHref legacyBehavior>
+                  <a className="btn load-more-btn px-4 py-2 fw-bold">Load More</a>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
       )}
 
+      {/* Styles */}
       <style jsx>{`
         .loader-container {
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 70vh;
+          height: 100vh;
         }
 
-        .category-card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          cursor: pointer;
+        .browse-heading {
+          font-size: 2.5rem;
+          font-weight: 700;
         }
-        .category-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+
+        .cate-card {
+          background-color: #ffffff;
+          border-radius: 8px;
+          padding: 1rem;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .cate-title h2 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin-top: 0.5rem;
+          color: #000;
+        }
+
+        .cate-lisitng span {
+          color: #777;
+          font-size: 0.9rem;
+        }
+
+        .load-more-btn {
+          background-color: #43ACE9;
+          color: #fff;
+          border: none;
+          transition: background-color 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+          background-color: #5bc3f0;
+          color: #fff;
+        }
+
+        .border-animate::before,
+        .border-animate::after,
+        .border-animate span.right-border,
+        .border-animate span.bottom-border {
+          content: "";
+          position: absolute;
+          background-color: #43ACE9;
+          z-index: 2;
+          transition: all 0.4s ease;
+        }
+
+        .border-animate::before {
+          height: 2px;
+          width: 0;
+          top: 0;
+          left: 0;
+        }
+
+        .border-animate::after {
+          height: 0;
+          width: 2px;
+          top: 0;
+          left: 0;
+        }
+
+        .border-animate span.right-border {
+          height: 0;
+          width: 2px;
+          top: 0;
+          right: 0;
+        }
+
+        .border-animate span.bottom-border {
+          width: 0;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+        }
+
+        .border-animate:hover::before {
+          width: 100%;
+          transition-delay: 0s;
+        }
+
+        .border-animate:hover::after {
+          height: 100%;
+          transition-delay: 0.2s;
+        }
+
+        .border-animate:hover span.right-border {
+          height: 100%;
+          transition-delay: 0.4s;
+        }
+
+        .border-animate:hover span.bottom-border {
+          width: 100%;
+          transition-delay: 0.6s;
         }
       `}</style>
     </>

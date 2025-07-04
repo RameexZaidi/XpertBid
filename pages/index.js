@@ -4,13 +4,15 @@ import { Oval } from "react-loader-spinner"; // Import the loader
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
-import FeaturedProducts from "../components/FeaturedProducts";
+//import FeaturedProducts from "../components/FeaturedProducts";
+import HowItWorks from "../components/HowItWorks";
+
 import SliderBrowseCategories from "../components/SliderBrowseCategories";
 import TopBid from "../components/TopBid";
 import MarketplaceSection from "../components/MarketplaceSection";
-import Testimonials from "../components/Testimonials.js";
-import GetStartedXpertBid from "../components/GetStartedXpertBid.js";
 import StartSelling from "../components/StartSelling";
+import SellerTestimonials from "../components/SellerTestimonials";
+
 //import { useSession } from "next-auth/react"; // Assuming you're using NextAuth.js
 // import PopupSequence from "../components/PopupSequence";
 
@@ -57,12 +59,13 @@ export default function Home() {
           <Header />
           {/* {isFirstLogin && <p className="welcome-message"> Welcome! This is your first login.</p>} */}
           <HeroSection />
-          <FeaturedProducts />
+          {/* <FeaturedProducts /> */}
+          <HowItWorks />
+
           <SliderBrowseCategories />
           <TopBid />
           <MarketplaceSection products={products} />
-          <Testimonials/>
-          <GetStartedXpertBid/>
+          <SellerTestimonials/>
           <StartSelling />
           <Footer />
         </>

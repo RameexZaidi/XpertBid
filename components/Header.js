@@ -374,18 +374,6 @@ useEffect(() => {
         </Link>
       </li>
 
-
-      <li className="nav-item">
-        <Link
-          href="Real_Estate"
-          className={`nav-link  ${
-            router.pathname === '/Real_Estate' ? 'active' : ''
-          }`}
-        >
-          Realestate 
-        </Link>
-      </li>
-
                          <li className="nav-item">
         <Link
           href="/about-our-partner"

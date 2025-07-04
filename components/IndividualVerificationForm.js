@@ -54,7 +54,9 @@ const router = useRouter();
   // load countries
   useEffect(() => {
     axios
-      .get(`https://admin.xpertbid.com/api/get-countries`)
+      .get(`http://127.0.0.1:8000/api/get-countries`)
+      //.get(`https://admin.xpertbid.com/api/get-countries`)
+
       .then(res => setCountries(res.data.country || []))
       .catch(console.error);
   }, []);
@@ -100,8 +102,11 @@ const router = useRouter();
     try {
       await axios.post(
         isEdit
-          ? `https://admin.xpertbid.com/api/individual-verifications/${initialData.id}`
-          : `https://admin.xpertbid.com/api/individual-verifications`,
+          ? `http://127.0.0.1:8000/api/individual-verifications/${initialData.id}`
+          : `http://127.0.0.1:8000/api/individual-verifications`,
+
+          //  ? `https://admin.xpertbid.com/api/individual-verifications/${initialData.id}`
+          // : `https://admin.xpertbid.com/api/individual-verifications`,
         fd,
         {
           headers: {

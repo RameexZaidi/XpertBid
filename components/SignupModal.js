@@ -89,7 +89,8 @@ const SignupModal = ({ isOpen, onClose }) => {
     setIsLoading(true);
     try {
       await axios.post(
-        `https://admin.xpertbid.com/api/register`,
+        // `https://admin.xpertbid.com/api/register`,
+        `http://127.0.0.1:8000/api/register`,
         {
           name: formData.name,
           email: formData.email,
@@ -112,7 +113,9 @@ const SignupModal = ({ isOpen, onClose }) => {
     setIsLoading(true);
     try {
       await axios.post(
-        `https://admin.xpertbid.com/api/verify-code`,
+        //`https://admin.xpertbid.com/api/verify-code`,
+          `http://127.0.0.1:8000/api/verify-code`,
+
         {
           email: formData.email,
           code: verificationCode,
@@ -137,7 +140,8 @@ const SignupModal = ({ isOpen, onClose }) => {
   const sendVerificationCode = async () => {
     try {
       await axios.post(
-        `https://admin.xpertbid.com/api/send-verification-code`,
+        //`https://admin.xpertbid.com/api/send-verification-code`,
+        `http://127.0.0.1:8000/api/send-verification-code`,
         { email: formData.email }
       );
       setSuccessMessage("Verification code sent to your email.");
@@ -154,7 +158,9 @@ const SignupModal = ({ isOpen, onClose }) => {
       setResendTimer(60);
 
       await axios.post(
+        //`http://127.0.0.1:8000/api/send-verification-code`,
         `https://admin.xpertbid.com/api/send-verification-code`,
+
         { email: formData.email }
       );
 
