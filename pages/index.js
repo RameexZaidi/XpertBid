@@ -8,6 +8,7 @@ import HeroSection from "../components/HeroSection";
 import HowItWorks from "../components/HowItWorks";
 
 import SliderBrowseCategories from "../components/SliderBrowseCategories";
+
 import TopBid from "../components/TopBid";
 import MarketplaceSection from "../components/MarketplaceSection";
 import StartSelling from "../components/StartSelling";
