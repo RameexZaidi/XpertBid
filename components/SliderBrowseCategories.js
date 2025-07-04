@@ -3,7 +3,7 @@ import { Oval } from "react-loader-spinner";
 import axios from "axios";
 import Link from "next/link";
 
-export default function BrowseCategories() {
+export default function SliderBrowseCategories() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -44,12 +44,12 @@ export default function BrowseCategories() {
         <section
           className="browsecategories text-dark"
           style={{
-            backgroundColor: "#ffffff", // plain white background
+            backgroundColor: "#ffffff",
             position: "relative",
             zIndex: 1,
             marginTop: "-50px",
             paddingTop: "4rem",
-            paddingBottom: "4rem"
+            paddingBottom: "4rem",
           }}
         >
           <div className="container-fluid position-relative">
